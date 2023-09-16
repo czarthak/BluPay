@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "518293173197",
+    "project_id": "blupay-signup",
+    "storage_bucket": "blupay-signup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518293173197:android:8b348f40a8e4d4a6f98a84",
+        "android_client_info": {
+          "package_name": "com.example.blupay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw_wNgHcPSPKla9vJ5vsZf8zpIFG-ciD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
