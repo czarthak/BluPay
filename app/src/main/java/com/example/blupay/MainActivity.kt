@@ -1,7 +1,10 @@
 package com.example.blupay
 
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import com.example.blupay.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,8 +14,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val bluetoothLEAvailable = packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
+        Log.i(bluetoothLEAvailable.toString(), " -> ble available")
 
+        val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
+        var scanning = false
+        val handler = Handler()
 
+        // Stops scanning after 10 seconds.
+        val SCAN_PERIOD: Long = 10000
 
+        fun scanLeDevice() {
+            if (!scanning) { // Stops scanning after a pre-defined scan period.
+                handler.postDelayed({
+                    scanning = false
+                    bluetoothLeScanner.stopScan(leScanCallback)
+                }, SCAN_PERIOD)
+                scanning = true
+                bluetoothLeScanner.startScan(leScanCallback)
+            } else {
+                scanning = false
+                bluetoothLeScanner.stopScan(leScanCallback)
+            }
+        }
     }
 }
