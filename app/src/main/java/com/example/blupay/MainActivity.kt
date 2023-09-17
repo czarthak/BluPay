@@ -17,25 +17,6 @@ class MainActivity : AppCompatActivity() {
         val bluetoothLEAvailable = packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
         Log.i(bluetoothLEAvailable.toString(), " -> ble available")
 
-        val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
-        var scanning = false
-        val handler = Handler()
 
-        // Stops scanning after 10 seconds.
-        val SCAN_PERIOD: Long = 10000
-
-        fun scanLeDevice() {
-            if (!scanning) { // Stops scanning after a pre-defined scan period.
-                handler.postDelayed({
-                    scanning = false
-                    bluetoothLeScanner.stopScan(leScanCallback)
-                }, SCAN_PERIOD)
-                scanning = true
-                bluetoothLeScanner.startScan(leScanCallback)
-            } else {
-                scanning = false
-                bluetoothLeScanner.stopScan(leScanCallback)
-            }
-        }
     }
 }
