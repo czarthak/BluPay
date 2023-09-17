@@ -19,5 +19,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/profileID"
+        android:layout_width="402dp"
+        android:layout_height="59dp"
+        android:text="Profile"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="668dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="121dp"
+        android:layout_height="50dp"
+        android:text="Home"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="45dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
